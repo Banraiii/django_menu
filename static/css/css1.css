@@ -1,0 +1,60 @@
+.treeCSS,
+.treeCSS ul {
+  position: relative;        
+  display: table;
+  margin: 5px 0 0 0 !important;
+  padding: 6px 0 0 0 !important;
+  line-height: normal;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.treeCSS li {
+  position: relative;
+  display: table-cell;
+}
+/* Отступ между пунктами */
+.treeCSS li:not(:only-child) {
+  padding: 0 .5em;
+}
+.treeCSS li:last-child {
+  padding-right: 0;
+}
+.treeCSS li:first-child {
+  padding-left: 0;
+}
+/* Линии */
+.treeCSS ul:before,
+.treeCSS ul li:before,
+.treeCSS ul li:after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 50%;
+  height: 5px;
+  border-right: 1px solid #999;
+}
+.treeCSS ul:before {
+  top: -4px;
+}
+.treeCSS ul li:not(:only-child):before {
+  border-top: 1px solid #999;
+}
+.treeCSS ul li:not(:only-child):first-child:before {
+  right: 0;
+  left: auto;
+  border-left: 1px solid #999;
+  border-right: none;
+}
+.treeCSS ul li:not(:only-child):first-child:before,
+.treeCSS ul li:not(:only-child):last-child:before { /* необязательно, 0.5 взят из свойства padding в селекторе .treeCSS li:not(:only-child) */
+  width: calc(50% + .5em/2);
+}
+.treeCSS ul li:after {
+  border: none;
+}
+.treeCSS ul li:not(:last-child):not(:first-child):after {
+  width: 100%;
+  border-top: 1px solid #999;
+}
